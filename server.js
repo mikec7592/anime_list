@@ -121,13 +121,13 @@ APP.get('/animeList/:id', (req, res) => {
   res.send('this is the show')
 })
 
-// DELETE
-APP.delete('/animeList/:id', (res, req) => {
-  Anime.findByIdAndRemove(req.params.id, (error, anime) => {
+
+
+APP.delete('/animeList/:id', (req, res) => {
+  Anime.findByIdAndDelete(req.params.id, (error, anime) => {
     res.redirect('/animeList')
   })
 })
-
 
 // EDIT
 APP.get('/animeList/:id/edit', (req, res) => {
