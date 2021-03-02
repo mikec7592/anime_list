@@ -16,6 +16,7 @@ const mongodbURI = 'mongodb://localhost:27017/anime_list'
 // MIDDLEWARE
 APP.use(methodOverride('_method'))
 APP.use(express.urlencoded({ extended: true }))
+APP.use(express.static('public'))
 // app.use(
 //   session({
 //     secret: process.env.SECRET, //a random string do not copy this value or your stuff will get hacked
