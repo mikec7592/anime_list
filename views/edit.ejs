@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('partials/head.ejs') %>
+</head>
+<body>
+    <h1>Modify</h1>
+    <header>
+        <%- include ('partials/header.ejs') %>
+    </header>
+    <form action="/animeList/<%=anime.id%>?_method=PUT" method="POST">
+        Title: <input type="text" name="title" value="<%= anime.title%>"/>
+        Description: <input type="text" name="description" value="<%=anime.description%>"/>
+        Image: <input type="text" name="img" value="<%=anime.img%>"/> <br/>
+        Completed: <input type="checkbox" name="completed"
+        <% if(anime.completed === true) { %>
+            checked
+       <% } %>
+       /> <br/>
+       Plan To Watch: <input type="checkbox" name="planToWatch"
+       <% if(anime.planToWatch === true) { %>
+           checked
+      <% } %>
+      /> <br/>
+      Rating: <input type="number" name="rating" value="<%=anime.rating%>"/> <br/>
+      <input type="submit" name="" value="Modify"/>
+    </form>
+</body>
+</html>

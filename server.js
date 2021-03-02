@@ -2,6 +2,7 @@
 const express = require('express')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
+const Anime = require('./models/anime')
 // const session = require('express-session')
 // const bcrypt = require('bcrypt')
 
@@ -76,21 +77,43 @@ mongoose.connect(
             completed: false,
             planToWatch: true,
         }
-    ])
+    ], (err, data) => {
+      res.redirect('/animeList')
+    }
+    )
 })
 
 
 // INDEX
   APP.get('/animeList', (req, res) => {
-    res.render()
+    Anime.find({}, (error, anime) => {
+      res.render('index.ejs', {
+        anime: anime
+      })
+    })
 })
 
 // NEW 
 APP.get('/animeList/new', (req, res) => {
-  res.send('this is new')
+  res.render('new.ejs')
 })
 
 // CREATE
+APP.post('/animeList', (req, res) => {
+  if (req.body.completed === 'on') {
+    req.body.completed = true;
+  } else {
+    req.body.completed = false;
+  }
+  if (req.body.planToWatch === 'on') {
+    req.body.planToWatch = true;
+  } else {
+    req.body.planToWatch = false;
+  }
+  Anime.create(req.body, (error, anime) => {
+    res.redirect('/animeList')
+  })
+})
 
 
 // SHOW
@@ -99,15 +122,39 @@ APP.get('/animeList/:id', (req, res) => {
 })
 
 // DELETE
-
+APP.delete('/animeList/:id', (res, req) => {
+  Anime.findByIdAndRemove(req.params.id, (error, anime) => {
+    res.redirect('/animeList')
+  })
+})
 
 
 // EDIT
-
+APP.get('/animeList/:id/edit', (req, res) => {
+  Anime.findById(req.params.id, (error, anime) => {
+    res.render('edit.ejs', {
+      anime: anime
+    })
+  })
+})
 
 
 // UPDATE
-
+APP.put('/animeList/:id', (req, res) => {
+  if (req.body.completed === 'on') {
+    req.body.completed = true;
+  } else {
+    req.body.completed = false;
+  }
+  if (req.body.planToWatch === 'on') {
+    req.body.planToWatch = true;
+  } else {
+    req.body.planToWatch = false;
+  }
+  Anime.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, anime) => {
+    res.redirect('/animeList')
+  })
+})
 
   
 // Listener

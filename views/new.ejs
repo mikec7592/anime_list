@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('partials/head.ejs') %>
+</head>
+<body>
+    <header>
+        <%- include ('partials/header.ejs') %>
+    </header>
+    <h1>New Anime</h1>
+    <form action="/animeList" method="POST">
+        Title: <input type="text" name="title" placeholder="Title"/>
+        Description: <input type="text" name="description" placeholder="brief description"/>
+        Image: <input type="text" name="img" placeholder="image tag here"/> <br/>
+        Completed: <input type="checkbox" name="completed"/> <br/>
+       Plan To Watch: <input type="checkbox" name="planToWatch"/> <br/>
+      Rating: <input type="number" name="rating" placeholder="1- 10"/> <br/>
+      <input type="submit" name="" value="ADD"/>
+    </form>
+</body>
+</html>
