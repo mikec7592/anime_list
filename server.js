@@ -2,15 +2,15 @@
 const express = require('express')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
-const session = require('express-session')
-const bcrypt = require('bcrypt')
+// const session = require('express-session')
+// const bcrypt = require('bcrypt')
 
 // CONFIGURATION
-require('dotenv').config()
+// require('dotenv').config()
 const APP = express()
 const DB = mongoose.connection
-const PORT = process.env.PORT
-const mongodbURI = process.env.MONGODBURI
+const PORT = 3000
+const mongodbURI = 'mongodb://localhost:27017/anime_list'
 
 // MIDDLEWARE
 APP.use(methodOverride('_method'))
@@ -43,7 +43,7 @@ mongoose.connect(
   DB.on('error', err => console.log(err.message + ' is mongod not running?'))
   DB.on('disconnected', () => console.log('mongo disconnected'))
   
-  Controllers
+  // Controllers
   const animeController = require('./controllers/anime.js')
   APP.use('/animeList', animeController)
   

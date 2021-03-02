@@ -15,5 +15,13 @@
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.11.18"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikec7592/anime_list.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mikec7592/anime_list/issues"
+  },
+  "homepage": "https://github.com/mikec7592/anime_list#readme"
 }
