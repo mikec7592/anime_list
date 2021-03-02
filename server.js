@@ -7,21 +7,21 @@ const bcrypt = require('bcrypt')
 
 // CONFIGURATION
 require('dotenv').config()
-const app = express()
-const db = mongoose.connection
+const APP = express()
+const DB = mongoose.connection
 const PORT = process.env.PORT
 const mongodbURI = process.env.MONGODBURI
 
 // MIDDLEWARE
-app.use(methodOverride('_method'))
-app.use(express.urlencoded({ extended: true }))
-app.use(
-  session({
-    secret: process.env.SECRET, //a random string do not copy this value or your stuff will get hacked
-    resave: false, // default more info: https://www.npmjs.com/package/express-session#resave
-    saveUninitialized: false // default  more info: https://www.npmjs.com/package/express-session#resave
-  })
-)
+APP.use(methodOverride('_method'))
+APP.use(express.urlencoded({ extended: true }))
+// app.use(
+//   session({
+//     secret: process.env.SECRET, //a random string do not copy this value or your stuff will get hacked
+//     resave: false, // default more info: https://www.npmjs.com/package/express-session#resave
+//     saveUninitialized: false // default  more info: https://www.npmjs.com/package/express-session#resave
+//   })
+// )
 
 
 // DATABASE
@@ -40,26 +40,22 @@ mongoose.connect(
   // Optional, but likely helpful
   // Connection Error/Success
   // Define callback functions for various events
-  db.on('error', err => console.log(err.message + ' is mongod not running?'))
-  db.on('disconnected', () => console.log('mongo disconnected'))
+  DB.on('error', err => console.log(err.message + ' is mongod not running?'))
+  DB.on('disconnected', () => console.log('mongo disconnected'))
   
-  // Controllers
-  const fruitsController = require('./controllers/')
-  app.use('/fruits', fruitsController)
+  Controllers
+  const animeController = require('./controllers/anime.js')
+  APP.use('/animeList', animeController)
   
-  const userController = require('./controllers/')
-  app.use('/users', userController)
+  // const userController = require('./controllers/')
+  // app.use('/users', userController)
   
   // const sessionsController = require('./controllers/sessions_controller.js')
   // app.use('/sessions', sessionsController)
   
-  // Routes
-  app.get('/', (req, res) => {
-    res.redirect('/fruits')
-  })
   
   // Listener
-  app.listen(PORT, () => {
+  APP.listen(PORT, () => {
     console.log('Listening on port', PORT)
   })
   
