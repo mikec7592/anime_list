@@ -1,4 +1,4 @@
-const { Router } = require('express')
+// const { Router } = require('express')
 const express = require('express')
 const ROUTER = express.Router()
 const Anime = require('../models/anime.js')
@@ -35,7 +35,7 @@ ROUTER.get('/seed', (req, res) => {
 })
 
 // ***********  INDEX  **********
-ROUTER.get('/', (req, res) => {
+ROUTER.get('/animeList', (req, res) => {
     res.send('greetings this is homebase')
 })
 
