@@ -1,9 +1,63 @@
 img {
+    border: solid black 5px;
+}
+
+nav {
+    text-align: center;
+}
+
+header {
+    text-align: center;
+}
+
+body.index {
+    background-image: url(https://cutewallpaper.org/21/ramen-wallpapers/98-Ramen-Wallpapers-on-WallpaperSafari.jpg);
+}
+
+body.new {
+    background-image: url(https://p1.hiclipart.com/preview/7/243/825/naruto-s-logos-love-kanji-text-illustration-png-clipart.jpg);
+}
+
+div.index {
+    height: 500px;
+    width: 500px;
+}
+
+img.index {
     height: 300px;
     width: 300px;
+    margin-top: 50px;
+    float: right;
+    display: inline block
+}
+img.show {
+    float: right;
+    height: 600px;
+    width: 600px;
+    margin: right 80px;
+}
+
+input.index {
+    color: red;
+    background-color: black;
+}
+input.new {
+    color: chartreuse;
+    background-color: black;
+}
+
+form.new {
+    color:black;
+    text-decoration: underline;
 }
 
 h1 {
-    color: cadetblue;
+    color: rgb(209, 32, 20);
+    text-align: center;
+    background-image: radial-gradient(rgba(255, 0, 0, 0.822), white);
+}
+
+button {
+    background-color: black;
 }
 

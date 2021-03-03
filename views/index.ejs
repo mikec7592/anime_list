@@ -3,22 +3,22 @@
 <head>
    <%- include ('partials/head.ejs') %>
 </head>
-<body>
-    <h1>Anime Index</h1>
+<body class="index">
+    <h1>~~~~~ Anime Index ~~~~~</h1>
     <nav> <button><a href="/animeList/new">New Entry</a></button> </nav>
             <div class="container">
                 <% for(let i = 0; i < anime.length; i++) { %> 
                 <div class="index">
 
-                    <a href="/animeList/<%=anime[i].id%>"><%=anime[i].title%></a> 
+                    <h4> <a href="/animeList/<%=anime[i].id%>"><%=anime[i].title%></a> </h4>
                     <% if (anime[i].completed === true) { %>
-                        Rated: <%= anime[i].rating %>
+                       <h5> Rated: <%= anime[i].rating %></h5>
                    <% } else { %>
                         Plan to watch / Watching
                  <%  } %>
                  <img src="<%=anime[i].img%>" class="index">
                     <form action="/animeList/<%=anime[i].id%>?_method=DELETE" method="POST">
-                        <input type="submit" value="REMOVE"/>
+                        <input type="submit" value="REMOVE" class="index"/>
                     </form>
                     <button><a href="/animeList/<%=anime[i].id%>/edit">MODIFY</a></button>
 

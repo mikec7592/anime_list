@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('partials/head.ejs') %>
+</head>
+<body>
+    <h1>~~~ AnieView ~~~</h1>
+    <header>
+        <%- include ('partials/header.ejs') %>
+    </header>
+    <h4> <%=anime.title%> </h4>
+            <% if (anime.completed === true) { %>
+             <h5> Rated: <%= anime.rating %></h5>
+               <% } else { %>
+                    Plan to watch / Watching
+                                 <%  } %>
+                 <img src="<%=anime.img%>" class="show">
+</body>
+</html>

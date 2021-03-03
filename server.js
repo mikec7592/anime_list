@@ -119,7 +119,11 @@ APP.post('/animeList', (req, res) => {
 
 // SHOW
 APP.get('/animeList/:id', (req, res) => {
-  res.send('this is the show')
+  Anime.findById(req.params.id, (error, anime) => {
+    res.render('show.ejs', {
+      anime: anime
+    })
+  })
 })
 
 
