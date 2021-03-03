@@ -35,11 +35,80 @@ ROUTER.get('/seed', (req, res) => {
 })
 
 // ***********  INDEX  **********
-ROUTER.get('/animeList', (req, res) => {
-    res.send('greetings this is homebase')
+ROUTER.get('/', (req, res) => {
+    Anime.find({}, (error, anime) => {
+      res.render('index.ejs', {
+        anime: anime,
+        currentUser:req.session.currentUser
+      })
+    })
 })
 
+// ******** NEW ********
+ROUTER.get('/new', (req, res) => {
+    res.render('new.ejs')
+  })
+
+  // ******** CREATE ********
+ROUTER.post('/', (req, res) => {
+    if (req.body.completed === 'on') {
+      req.body.completed = true;
+    } else {
+      req.body.completed = false;
+    }
+    if (req.body.planToWatch === 'on') {
+      req.body.planToWatch = true;
+    } else {
+      req.body.planToWatch = false;
+    }
+    Anime.create(req.body, (error, anime) => {
+      res.redirect('/animeList')
+    })
+  })
+
+  // ********* SHOW *********
+ROUTER.get('/:id', (req, res) => {
+    Anime.findById(req.params.id, (error, anime) => {
+      res.render('show.ejs', {
+        anime: anime
+      })
+    })
+  })
 
 
+// ******** DELETE ********
+ROUTER.delete('/:id', (req, res) => {
+    Anime.findByIdAndDelete(req.params.id, (error, anime) => {
+      res.redirect('/animeList')
+    })
+  })
+  
+
+  // ****** EDIT ********
+ROUTER.get('/:id/edit', (req, res) => {
+    Anime.findById(req.params.id, (error, anime) => {
+      res.render('edit.ejs', {
+        anime: anime
+      })
+    })
+  })
+
+
+  // ******* UPDATE *******
+ROUTER.put('/:id', (req, res) => {
+    if (req.body.completed === 'on') {
+      req.body.completed = true;
+    } else {
+      req.body.completed = false;
+    }
+    if (req.body.planToWatch === 'on') {
+      req.body.planToWatch = true;
+    } else {
+      req.body.planToWatch = false;
+    }
+    Anime.findByIdAndUpdate(req.params.id, req.body, {new: true}, (error, anime) => {
+      res.redirect('/animeList')
+    })
+  })
 
 module.exports = ROUTER

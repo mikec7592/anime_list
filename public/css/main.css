@@ -22,6 +22,10 @@ body.show {
     background-image: url(https://i.pinimg.com/474x/ff/9e/4f/ff9e4f4932ea20ec5febbb114a806e67.jpg);
 }
 
+body.edit {
+    background-image: url(https://i.pinimg.com/474x/69/20/d8/6920d87d3526fcd517234e576fdd1848.jpg);
+}
+
 div.index {
     height: 500px;
     width: 500px;
@@ -56,6 +60,11 @@ input.new {
     background-color: black;
 }
 
+input.edit {
+    color: chartreuse;
+    background-color: black;
+}
+
 form.new {
     color:black;
     text-decoration: underline;
@@ -71,3 +80,6 @@ button {
     background-color: black;
 }
 
+p {
+    font-size: larger;
+}
