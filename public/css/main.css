@@ -18,9 +18,20 @@ body.new {
     background-image: url(https://p1.hiclipart.com/preview/7/243/825/naruto-s-logos-love-kanji-text-illustration-png-clipart.jpg);
 }
 
+body.show {
+    background-image: url(https://i.pinimg.com/474x/ff/9e/4f/ff9e4f4932ea20ec5febbb114a806e67.jpg);
+}
+
 div.index {
     height: 500px;
     width: 500px;
+}
+
+div.show {
+    display: inline;
+    background-color: blanchedalmond;
+    width: 300px;
+    height: 600px;
 }
 
 img.index {
@@ -31,10 +42,9 @@ img.index {
     display: inline block
 }
 img.show {
-    float: right;
+    float: center;
     height: 600px;
     width: 600px;
-    margin: right 80px;
 }
 
 input.index {

@@ -3,17 +3,22 @@
 <head>
     <%- include ('partials/head.ejs') %>
 </head>
-<body>
+<body class="show"> 
     <h1>~~~ AnieView ~~~</h1>
     <header>
         <%- include ('partials/header.ejs') %>
     </header>
-    <h4> <%=anime.title%> </h4>
+    <div class="show">
+        <h3> <%=anime.title%> </h3>
             <% if (anime.completed === true) { %>
-             <h5> Rated: <%= anime.rating %></h5>
+             <h4> Rated: <%= anime.rating %></h4>
                <% } else { %>
-                    Plan to watch / Watching
-                                 <%  } %>
-                 <img src="<%=anime.img%>" class="show">
+                   <h4> Plan to watch / Watching </h4>
+              <%  } %>
+        <p> Description: <%= anime.description %> </p>
+    </div>
+    <div class="showImg">
+        <img src="<%=anime.img%>" class="show">
+    </div>
 </body>
 </html>
