@@ -9,12 +9,12 @@ const bcrypt = require('bcrypt')
 require('dotenv').config()
 const APP = express()
 const DB = mongoose.connection
-const PORT = 3000
-const mongodbURI = 'mongodb://localhost:27017/anime_list'
+const PORT = process.env.PORT || 3000
+const mongodbURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/anime_list'
 
 // MIDDLEWARE
 APP.use(methodOverride('_method'))
-APP.use(express.urlencoded({ extended: true }))
+APP.use(express.urlencoded({ extended: false }))
 APP.use(express.static('public'))
 APP.use(
   session({
