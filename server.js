@@ -38,9 +38,7 @@ mongoose.connect(
     }
   )
   
-  // Optional, but likely helpful
-  // Connection Error/Success
-  // Define callback functions for various events
+  
   DB.on('error', err => console.log(err.message + ' is mongod not running?'))
   DB.on('disconnected', () => console.log('mongo disconnected'))
   
@@ -56,8 +54,9 @@ mongoose.connect(
   
   // ******* ROUTES ********
   
-
- 
+APP.get('/', (req, res) => {
+  res.redirect('/animeList')
+}) 
 
   
 // Listener
