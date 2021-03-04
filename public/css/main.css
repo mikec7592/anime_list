@@ -116,3 +116,7 @@ textarea {
     color: black;
     font-size: larger;
 }
+
+form.edit {
+    color: chocolate;
+}

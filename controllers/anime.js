@@ -36,7 +36,7 @@ ROUTER.get('/seed', (req, res) => {
 // ***********  INDEX  **********
 ROUTER.get('/', (req, res) => {
     Anime.find({}, (error, anime) => {
-      res.render('index.ejs', {
+      res.render('./anime/index.ejs', {
         anime: anime,
         currentUser:req.session.currentUser
       })
@@ -45,7 +45,7 @@ ROUTER.get('/', (req, res) => {
 
 // ******** NEW ********
 ROUTER.get('/new', (req, res) => {
-    res.render('new.ejs', {
+    res.render('./anime/new.ejs', {
         currentUser: req.session.currentUser
     })
   })
@@ -70,7 +70,7 @@ ROUTER.post('/', (req, res) => {
   // ********* SHOW *********
 ROUTER.get('/:id', (req, res) => {
     Anime.findById(req.params.id, (error, anime) => {
-      res.render('show.ejs', {
+      res.render('./anime/show.ejs', {
         anime: anime,
         currentUser: req.session.currentUser
       })
@@ -81,7 +81,7 @@ ROUTER.get('/:id', (req, res) => {
 ROUTER.get('/favorites', (req, res) => {
     if (req.session.currentUser) {
       Anime.find({}, (error, anime) => {
-        res.render('favorites.ejs', {
+        res.render('./anime/favorites.ejs', {
           anime: anime,
           currentUser: req.session.currentUser
         })
@@ -103,7 +103,7 @@ ROUTER.delete('/:id', (req, res) => {
   // ****** EDIT ********
 ROUTER.get('/:id/edit', (req, res) => {
     Anime.findById(req.params.id, (error, anime) => {
-      res.render('edit.ejs', {
+      res.render('./anime/edit.ejs', {
         anime: anime,
         currentUser: req.session.currentUser
       })

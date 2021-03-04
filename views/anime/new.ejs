@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include ('partials/head.ejs') %>
+    <%- include ('../partials/head.ejs') %>
 </head>
 <body class="new">
-    <%- include ('partials/nav.ejs') %>
+    <%- include ('../partials/nav.ejs') %>
 
     <h1>~~~~ New Anime ~~~~</h1>
     <header>
-        <%- include ('partials/header.ejs') %>
+        <%- include ('../partials/header.ejs') %>
     </header>
     <form action="/animeList" method="POST" class="new">
         Title: <input type="text" name="title" placeholder="Title"/>
