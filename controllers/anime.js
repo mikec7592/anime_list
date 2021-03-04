@@ -1,4 +1,3 @@
-// const { Router } = require('express')
 const express = require('express')
 const ROUTER = express.Router()
 const Anime = require('../models/anime.js')
@@ -46,7 +45,9 @@ ROUTER.get('/', (req, res) => {
 
 // ******** NEW ********
 ROUTER.get('/new', (req, res) => {
-    res.render('new.ejs')
+    res.render('new.ejs', {
+        currentUser: req.session.currentUser
+    })
   })
 
   // ******** CREATE ********
@@ -70,9 +71,24 @@ ROUTER.post('/', (req, res) => {
 ROUTER.get('/:id', (req, res) => {
     Anime.findById(req.params.id, (error, anime) => {
       res.render('show.ejs', {
-        anime: anime
+        anime: anime,
+        currentUser: req.session.currentUser
       })
     })
+  })
+
+// ****** FAVORITES ********
+ROUTER.get('/favorites', (req, res) => {
+    if (req.session.currentUser) {
+      Anime.find({}, (error, anime) => {
+        res.render('favorites.ejs', {
+          anime: anime,
+          currentUser: req.session.currentUser
+        })
+      })
+    } else {
+      res.redirect('/sessions/new')
+    }
   })
 
 
@@ -88,7 +104,8 @@ ROUTER.delete('/:id', (req, res) => {
 ROUTER.get('/:id/edit', (req, res) => {
     Anime.findById(req.params.id, (error, anime) => {
       res.render('edit.ejs', {
-        anime: anime
+        anime: anime,
+        currentUser: req.session.currentUser
       })
     })
   })

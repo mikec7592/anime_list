@@ -1,15 +1,15 @@
 const bcrypt = require('bcrypt')
 const express = require('express')
-const sessions = express.Router()
+const ROUTER = express.Router()
 const User = require('../models/users.js')
 
 
-sessions.get('/new', (req, res) => {
+ROUTER.get('/new', (req, res) => {
     res.render('sessions/new.ejs', { currentUser: req.session.currentUser })
   })
   
   // on sessions form submit (log in)
-  sessions.post('/', (req, res) => {
+  ROUTER.post('/', (req, res) => {
     // username is found and password matches
     // successful log in
   
@@ -37,7 +37,7 @@ sessions.get('/new', (req, res) => {
           // add the user to our session
           req.session.currentUser = foundUser
           // redirect back to our home page
-          res.redirect('/')
+          res.redirect('/animeList')
         } else {
           // passwords do not match
           res.send('<a href="/"> password does not match </a>')
@@ -46,12 +46,12 @@ sessions.get('/new', (req, res) => {
     })
   })
   
-  sessions.delete('/', (req, res) => {
+  ROUTER.delete('/', (req, res) => {
     req.session.destroy(() => {
-      res.redirect('/')
+      res.redirect('/animeList')
     })
   })
 
   
   
-  module.exports = sessions
+  module.exports = ROUTER

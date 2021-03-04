@@ -33,7 +33,6 @@ div.index {
 
 div.show {
     display: inline;
-    background-color: blanchedalmond;
     width: 300px;
     height: 600px;
 }
@@ -46,7 +45,9 @@ img.index {
     display: inline block
 }
 img.show {
-    float: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     height: 600px;
     width: 600px;
 }
@@ -65,9 +66,19 @@ input.edit {
     background-color: black;
 }
 
+input.logOut {
+    color: darkorchid;
+    background-color: black;
+}
+
 form.new {
     color:black;
     text-decoration: underline;
+}
+
+input.favorites {
+    color:gold;
+    background-color: black;
 }
 
 h1 {
@@ -81,5 +92,27 @@ button {
 }
 
 p {
+    font-size: larger;
+}
+
+ul.nav {
+    text-align: right;
+    list-style: none;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.473), black);
+}
+
+li.greeting {
+    color: aqua;
+    font-size: larger;
+}
+
+li {
+    display: inline;
+    align-content: center;
+}
+
+textarea {
+    background-image: linear-gradient(rgba(128, 128, 128, 0.226), grey);
+    color: black;
     font-size: larger;
 }

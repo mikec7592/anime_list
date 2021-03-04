@@ -4,11 +4,25 @@
     <%- include ('partials/head.ejs') %>
 </head>
 <body class="show"> 
+    <%- include ('partials/nav.ejs') %>
+
     <h1>~~~ AnieView ~~~</h1>
     <header>
         <%- include ('partials/header.ejs') %>
     </header>
     <div class="show">
+        <% if (currentUser) { %>
+            <h3> <%=anime.title%> </h3>
+        <form action="/animeList/favorites" method="POST" class="favorites">
+          <input type="submit" name="" value="FAVORITE" class="favorites"/>
+        </form>
+            <% if (anime.completed === true) { %>
+             <h4> Rated: <%= anime.rating %></h4>
+               <% } else { %>
+                   <h4> Plan to watch / Watching </h4>
+              <%  } %>
+        <textarea> Description: <%= anime.description %> </textarea>
+      <% } else { %>
         <h3> <%=anime.title%> </h3>
             <% if (anime.completed === true) { %>
              <h4> Rated: <%= anime.rating %></h4>
@@ -16,6 +30,7 @@
                    <h4> Plan to watch / Watching </h4>
               <%  } %>
         <p> Description: <%= anime.description %> </p>
+     <% } %>
     </div>
     <div class="showImg">
         <img src="<%=anime.img%>" class="show">
