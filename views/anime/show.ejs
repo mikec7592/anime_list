@@ -17,7 +17,7 @@
           <input type="submit" name="" value="FAVORITE" class="favorites"/>
         </form>
             <% if (anime.completed === true) { %>
-             <h4> Rated: <%= anime.rating %></h4>
+             <h5> Rated: <%= anime.rating %></h5>
                <% } else { %>
                    <h4> Plan to watch / Watching </h4>
               <%  } %>
@@ -25,7 +25,7 @@
       <% } else { %>
         <h3> <%=anime.title%> </h3>
             <% if (anime.completed === true) { %>
-             <h4> Rated: <%= anime.rating %></h4>
+             <h5> Rated: <%= anime.rating %></h5>
                <% } else { %>
                    <h4> Plan to watch / Watching </h4>
               <%  } %>

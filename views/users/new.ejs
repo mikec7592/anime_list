@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <%- include ('../partials/head.ejs') %>
+</head>
   </head>
-  <body>
+  <body class="newUser">
+    <%- include ('../partials/nav.ejs') %>
     <div class="container">
       <h1>New User</h1>
-      <form action="/users" method="POST">
+      <form action="/users" method="POST" class="newUser">
         <label for="name">User Name:</label>
         <input type="text" name="username" required/>
         <label for="color">Password:</label>
         <input type="password" name="password" />
         <br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="newUser">
       <form>
     </div>
   </body>

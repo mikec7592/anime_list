@@ -26,6 +26,14 @@ body.edit {
     background-image: url(https://i.pinimg.com/474x/69/20/d8/6920d87d3526fcd517234e576fdd1848.jpg);
 }
 
+body.newUser {
+    background-image: url(https://cdn.statically.io/img/i.pinimg.com/originals/09/24/4c/09244c7f7dd4d17b0484370f32db6641.gif);
+}
+
+body.login {
+    background-image: url(https://cdn.statically.io/img/i.pinimg.com/originals/09/24/4c/09244c7f7dd4d17b0484370f32db6641.gif);
+}
+
 div.index {
     height: 500px;
     width: 500px;
@@ -82,7 +90,7 @@ input.favorites {
 }
 
 h1 {
-    color: rgb(209, 32, 20);
+    color: rgb(148, 19, 9);
     text-align: center;
     background-image: radial-gradient(rgba(255, 0, 0, 0.822), white);
 }
@@ -119,4 +127,18 @@ textarea {
 
 form.edit {
     color: chocolate;
+}
+
+form.login, form.newUser {
+    color: chocolate;
+}
+
+input.login, input.newUser {
+    color: black;
+    background-image: radial-gradient(red, black);
+}
+h5 {
+    color: goldenrod;
+    background-color: black;
+    display: inline-block;
 }
