@@ -103,7 +103,7 @@ p {
     font-size: larger;
 }
 
-ul.nav {
+ul.nav { 
     text-align: right;
     list-style: none;
     background-image: radial-gradient(rgba(0, 0, 0, 0.473), black);
